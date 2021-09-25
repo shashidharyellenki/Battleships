@@ -71,7 +71,23 @@ Parameters: no parameters
 Returns: 2D list of ints
 '''
 def createShip():
-    return
+    row = rd.randint(1,8)
+    #print(row)
+    col = rd.randint(1,8)
+    #temp = [row,col]
+    #print(temp)
+    col_or_row = rd.randint(0,1)
+    #print(col_or_row)
+    ship1=[]
+    
+    if col_or_row == 0:                     #vertical
+        for row in range(row-1, row+2):
+            ship1.append([row,col])
+    else:                                   #horizantal
+        for col in range(col-1, col+2):
+            ship1.append([row,col])
+    return ship1
+    
 
 
 '''
