@@ -80,7 +80,15 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def checkShip(grid, ship):
-    return
+    count=0
+    for i in ship:
+        if grid[i[0]][i[1]] == 1:
+            count+=1
+            if count == 3:
+                return True
+        else:
+            return False
+    
 
 
 '''
