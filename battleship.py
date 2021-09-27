@@ -84,7 +84,7 @@ def checkShip(grid, ship):
     for row in ship:
         #print(ship[row])
         #print(grid[row[0]][row[1]])
-        if grid[row[0]][row[1]] ==1:
+        if grid[row[0]][row[1]] ==EMPTY_UNCLICKED:
             count.append(1)
             
             #print(count)
