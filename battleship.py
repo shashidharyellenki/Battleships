@@ -90,12 +90,12 @@ Returns: 2D list of ints
 '''
 def addShips(grid, numShips):
     count=0
-    ships=[]
+    #ships=[]
     while count !=  numShips:
         ship2= createShip()
         if checkShip(grid, ship2):
             for i in range(len(ship2)):
-                ships.append(SHIP_UNCLICKED) 
+                #ships.append(SHIP_UNCLICKED) 
                 grid[ship2[i][0]][ship2[i][1]] =SHIP_UNCLICKED
                 
                
