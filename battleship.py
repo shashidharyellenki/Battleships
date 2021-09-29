@@ -34,6 +34,18 @@ Parameters: dict mapping strs to values ; Tkinter canvas ; Tkinter canvas
 Returns: None
 '''
 def makeView(data, userCanvas, compCanvas):
+    data["rows"]=10
+    data["cols"]=10
+    data["board-size"]=500
+    data["cell-size"]= data["board-size"]/data["rows"]                              #creating the cells
+    data["Number of ships"]=5
+    #data["user"]=emptyGrid(data["rows"], data["cols"]) 
+    User= test.testGrid()                                                           #userboard
+    data["User-board"] =User
+    data["computer"] = emptyGrid(data["rows"], data["cols"])                        #computer board 
+    #addShips(data["user"], data["Number of ships"])
+    #createShip()
+    addShips(data["computer"], data["Number of ships"])
     return
 
 
