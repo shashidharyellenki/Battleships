@@ -154,7 +154,15 @@ Parameters: dict mapping strs to values
 Returns: None
 '''
 def placeShip(data):
+      if shipIsValid(data["User-board"], data["temp_boat"]):
+        for i in data["temp_boat"]:
+            data["User-board"][i[0]][i[1]] = SHIP_UNCLICKED
+        data["user_track"]+=1
+    else:
+        print("error: ship is invalid")
+    data["temp_boat"] = []
     return
+    
 
 
 '''
