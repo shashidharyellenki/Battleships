@@ -145,7 +145,11 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def shipIsValid(grid, ship):
-    return
+     if len(ship)==3:
+        if checkShip(grid, ship) and (isVertical(ship) or isHorizontal(ship)):
+            return True
+    return False
+   
 
 
 '''
@@ -154,6 +158,13 @@ Parameters: dict mapping strs to values
 Returns: None
 '''
 def placeShip(data):
+    if shipIsValid(data["User-board"], data["temp_boat"]):
+        for i in data["temp_boat"]:
+            data["User-board"][i[0]][i[1]] = SHIP_UNCLICKED
+        data["user_track"]+=1
+    else:
+        print("error: ship is invalid")
+    data["temp_boat"] = []
     return
 
 
@@ -163,6 +174,15 @@ Parameters: dict mapping strs to values ; int ; int
 Returns: None
 '''
 def clickUserBoard(data, row, col):
+       if data["user_track"] == 5:
+        print("you can start the game!")
+        return
+    for ship in data["temp_boat"]:
+        if [row,col] == ship:
+            return
+    data["temp_boat"].append([row,col])
+    if len(data["temp_boat"]) == 3:
+        placeShip(data)
     return
 
 
