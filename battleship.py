@@ -34,6 +34,9 @@ Parameters: dict mapping strs to values ; Tkinter canvas ; Tkinter canvas
 Returns: None
 '''
 def makeView(data, userCanvas, compCanvas):
+    drawGrid(data, userCanvas, data["User-board"], True)
+    drawShip(data, userCanvas, data["temp_boat"]) #drawship
+    drawGrid(data, compCanvas, data["computer"], True)
     return
 
 
