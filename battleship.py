@@ -163,6 +163,15 @@ Parameters: dict mapping strs to values ; int ; int
 Returns: None
 '''
 def clickUserBoard(data, row, col):
+     if data["user_track"] == 5:
+        print("you can start the game!")
+        return
+    for ship in data["temp_boat"]:
+        if [row,col] == ship:
+            return
+    data["temp_boat"].append([row,col])
+    if len(data["temp_boat"]) == 3:
+        placeShip(data)
     return
 
 
