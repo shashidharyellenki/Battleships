@@ -103,7 +103,19 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def checkShip(grid, ship):
-    return
+    count=[]
+    for row in ship:
+        #print(ship[row])
+        #print(grid[row[0]][row[1]])
+        if grid[row[0]][row[1]] ==EMPTY_UNCLICKED:
+            count.append(1)
+            
+            #print(count)
+    if len(count) ==3:
+        return True
+    else:
+        return False
+    
 
 
 '''
