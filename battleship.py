@@ -25,15 +25,6 @@ Parameters: dict mapping strs to values
 Returns: None
 '''
 def makeModel(data):
-    return
-
-
-'''
-makeView(data, userCanvas, compCanvas)
-Parameters: dict mapping strs to values ; Tkinter canvas ; Tkinter canvas
-Returns: None
-'''
-def makeView(data, userCanvas, compCanvas):
     data["rows"]=10
     data["cols"]=10
     data["board-size"]=500
@@ -46,6 +37,17 @@ def makeView(data, userCanvas, compCanvas):
     #addShips(data["user"], data["Number of ships"])
     #createShip()
     addShips(data["computer"], data["Number of ships"])
+    return
+
+
+'''
+makeView(data, userCanvas, compCanvas)
+Parameters: dict mapping strs to values ; Tkinter canvas ; Tkinter canvas
+Returns: None
+'''
+def makeView(data, userCanvas, compCanvas):
+    userCanvas = drawGrid(data, userCanvas, data["User-board"], True)
+    compCanvas = drawGrid(data, compCanvas, data["computer"], True)
     return
 
 
@@ -74,7 +76,14 @@ Parameters: int ; int
 Returns: 2D list of ints
 '''
 def emptyGrid(rows, cols):
-    return
+    grid=[]
+    for i in range(rows):
+        col = []
+        for j in range(cols):
+            col.append(EMPTY_UNCLICKED)
+        grid.append(col)
+    return (grid)
+    
 
 
 '''
@@ -83,7 +92,23 @@ Parameters: no parameters
 Returns: 2D list of ints
 '''
 def createShip():
-    return
+    row = rd.randint(1,8)
+    #print(row)
+    col = rd.randint(1,8)
+    #temp = [row,col]
+    #print(temp)
+    col_or_row = rd.randint(0,1)
+    #print(col_or_row)
+    ship1=[]
+    
+    if col_or_row == 0:                     #vertical
+        for row in range(row-1, row+2):
+            ship1.append([row,col])
+    else:                                   #horizantal
+        for col in range(col-1, col+2):
+            ship1.append([row,col])
+    return ship1
+    
 
 
 '''
@@ -92,7 +117,19 @@ Parameters: 2D list of ints ; 2D list of ints
 Returns: bool
 '''
 def checkShip(grid, ship):
-    return
+    count=[]
+    for row in ship:
+        #print(ship[row])
+        #print(grid[row[0]][row[1]])
+        if grid[row[0]][row[1]] ==EMPTY_UNCLICKED:
+            count.append(1)
+            
+            #print(count)
+    if len(count) ==3:
+        return True
+    else:
+        return False
+    
 
 
 '''
